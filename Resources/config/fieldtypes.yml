@@ -1,0 +1,14 @@
+parameters:
+# xrowmetadata
+    xrow_metadata_types.xrowmetadata.class: xrow\XrowMetadataBundle\FieldType\XrowMetadata\Type
+    xrow_metadata_types.xrowmetadata.converter.class: xrow\XrowMetadataBundle\FieldType\XrowMetadata\XrowMetadataConverter
+    xrow_metadata_types.xrowmetadata.externalStorage.class: xrow\XrowMetadataBundle\FieldType\XrowMetadata\XrowMetadataStorage
+    xrow_metadata_types.xrowmetadata.storage_gateway.class: xrow\XrowMetadataBundle\FieldType\XrowMetadata\XrowMetadataStorage\Gateway\LegacyStorage
+
+services:
+# xrowmetadata
+    xrow_metadata_types.xrowmetadata:
+        class: %xrow_metadata_types.xrowmetadata.class%
+        parent: ezpublish.fieldType
+        tags:
+            - {name: ezpublish.fieldType, alias: xrowmetadata}
