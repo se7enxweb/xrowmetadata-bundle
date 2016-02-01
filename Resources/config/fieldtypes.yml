@@ -12,3 +12,15 @@ services:
         parent: ezpublish.fieldType
         tags:
             - {name: ezpublish.fieldType, alias: xrowmetadata}
+    xrow_metadata_types.xrowmetadata.converter:
+        class: %xrow_metadata_types.xrowmetadata.converter.class%
+        tags:
+            - {name: ezpublish.storageEngine.legacy.converter, alias: xrowmetadata}
+    xrow_metadata_types.xrowmetadata.externalStorage:
+        class: %xrow_metadata_types.xrowmetadata.externalStorage.class%
+        tags:
+            - {name: ezpublish.fieldType.externalStorageHandler, alias: xrowmetadata}
+    xrow_metadata_types.xrowmetadata.storage_gateway:
+        class: %xrow_metadata_types.xrowmetadata.storage_gateway.class%
+        tags:
+            - {name: ezpublish.fieldType.externalStorageHandler.gateway, alias: xrowmetadata, identifier: LegacyStorage}
