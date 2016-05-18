@@ -139,7 +139,9 @@ class LegacyStorage extends Gateway
      */
     public function getFieldData( Field $field )
     {
-        $field->value->externalData = $this->getAssignedKeywords( $field->id );
+        $result = $this->getAssignedKeywords( $field->id );
+        $field->value->externalData = implode(", ", $result);
+        return $result;
     }
 
     /**
@@ -195,7 +197,6 @@ class LegacyStorage extends Gateway
 
         $statement = $query->prepare();
         $statement->execute();
-
         return $statement->fetchAll( \PDO::FETCH_COLUMN, 0 );
     }
 
@@ -439,4 +440,5 @@ class LegacyStorage extends Gateway
 
         $deleteQuery->prepare()->execute();
     }
+    
 }

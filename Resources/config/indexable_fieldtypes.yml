@@ -1,0 +1,7 @@
+parameters:
+    xrow.fieldType.xrowmetadata.class: xrow\XrowMetadataBundle\FieldType\XrowMetadata\SearchField
+services:
+    xrow.fieldType.xrowmetadata:
+        class: %xrow.fieldType.xrowmetadata.class%
+        tags:
+            - {name: ezpublish.fieldType.indexable, alias: xrowmetadata}
