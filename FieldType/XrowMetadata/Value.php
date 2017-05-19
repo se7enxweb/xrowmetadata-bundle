@@ -25,7 +25,7 @@ class Value extends BaseValue
      */
     public function __construct( $values = null )
     {
-        if($values !== null && array_key_exists("keywords",$values)){
+        if(!empty($values) && array_key_exists("keywords",$values)){
             $this->keywords = array_unique( $values['keywords'] );
         }
     }
