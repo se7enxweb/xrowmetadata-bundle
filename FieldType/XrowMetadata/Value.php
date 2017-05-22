@@ -25,6 +25,15 @@ class Value extends BaseValue
      */
     public function __construct( $values = null )
     {
+        if(is_string($values)) {
+            if (strstr($values, ',')) {
+                $valueTemp = array_map('trim', explode(',', $values));
+            } else {
+                $valueTemp = trim($values);
+            }
+            $values = array("keywords" => $valueTemp);
+        }
+        
         if(!empty($values) && array_key_exists("keywords",$values)){
             $this->keywords = array_unique( $values['keywords'] );
         }
